@@ -27,6 +27,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	border-radius: 200px;
+	flex-shrink: 0;
 }
 .dot {
 	height: 150px;
@@ -38,6 +39,7 @@ body {
 	justify-content: center;
 	overflow: hidden;
 	padding: 60px;
+	cursor: pointer;
 }
 .dot p {
 	font-size: 14px;
@@ -61,5 +63,36 @@ body {
 .card-sec {
 	font-size: 14px;
 	font-weight: 600;
-  height: 20px;
+	height: 20px;
+}
+
+.tool-tip {
+	position: absolute;
+	z-index: 50;
+	top: -20px;
+	right: -60px;
+	background: #fff;
+	color: #000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 10px;
+	border-radius: 5px
+	
+}
+@media (max-width: 900px) {
+	.dot-overlay {
+		height: 150px;
+		width: 150px;
+	}
+	.dot {
+		height: 130px;
+		width: 130px;
+	}
+	.card {
+		height: 120px;
+	}
+	.card-sec {
+		height: 40px;
+	}
 }
