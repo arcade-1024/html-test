@@ -6,22 +6,34 @@ body {
 	margin: 0;
 	box-sizing: border-box;
 }
-
+p {
+	margin: 0;
+}
 #section1 {
 	background-image: url("./assets/banner.png");
 	height: 550px;
 	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-
+.section-para {
+	width: 50%;
+}
 .links:hover {
 	border-bottom: 2px solid #ffc107;
 	cursor: pointer;
 	transition: all 0.2s ease;
 }
-
+.card-box {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
+	padding-bottom: 40px;
+}
 .dot-overlay {
-	height: 180px;
-	width: 180px;
+	height: 170px;
+	width: 170px;
 	background: rgba(244, 244, 244, 0.3);
 	display: flex;
 	align-items: center;
@@ -45,7 +57,7 @@ body {
 	font-size: 14px;
 }
 .card {
-	height: 100px;
+	height: fit-content;
 	background: #f3f3f3;
 	width: 100%;
 	cursor: pointer;
@@ -54,7 +66,13 @@ body {
 .card:hover {
 	background: rgb(225, 225, 225);
 }
-
+.card img {
+	flex-shrink: 0;
+	flex-grow: 0;
+}
+.side-border {
+	height: 80px;
+}
 .card:hover > .side-border {
 	border: 1px solid rgb(206, 206, 206);
 	border-top: 0;
@@ -75,9 +93,29 @@ body {
 .card-sec {
 	font-size: 14px;
 	font-weight: 600;
-	height: 20px;
+	flex: 1;
+	flex-wrap: nowrap;
+	overflow: hidden;
 }
-
+.card-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	height: max-content;
+	overflow: hidden;
+}
+.card-content > div {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.card-content > div > div {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
 .tool-tip {
 	position: absolute;
 	z-index: 50;
@@ -91,7 +129,17 @@ body {
 	padding: 4px 10px;
 	border-radius: 5px;
 }
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
+	#section1 {
+		height: fit-content;
+	}
+	.section-para {
+		width: 90%;
+	}
+	.card-box {
+		justify-content: center;
+		gap: 40px;
+	}
 	.dot-overlay {
 		height: 150px;
 		width: 150px;
@@ -100,10 +148,28 @@ body {
 		height: 130px;
 		width: 130px;
 	}
+
+	.card-sec {
+		flex: 1;
+	}
+	.tool-tip {
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@media (max-width: 800px) {
+	.card-box {
+		justify-content: center;
+	}
 	.card {
-		height: 120px;
+		align-items: center;
 	}
 	.card-sec {
-		height: 40px;
+		flex: 1;
+		text-overflow: ellipsis; /* IE, Safari (WebKit) */
+		overflow: hidden; /* don't show excess chars */
+		white-space: nowrap; /* force single line */
+		width: 100%;
 	}
 }
